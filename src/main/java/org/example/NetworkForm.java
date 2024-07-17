@@ -17,13 +17,13 @@ public class NetworkForm {
         form = new VBox();
         form.setPadding(new Insets(10));
         form.setSpacing(10);
-        form.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 10px; -fx-spacing: 10px;");
+        form.setStyle("-fx-background-color: rgba(243,236,236,0.1); -fx-padding: 10px; -fx-spacing: 10px;");
 
         branchNameField = new TextField();
         departmentNameField = new TextField();
         hostCountField = new TextField();
         outputTable = createOutputTable();
-        outputTable.setStyle("-fx-table-cell-border-color: transparent;");
+        outputTable.setStyle("-fx-background-color: rgba(255,251,255,0.53);-fx-border-color: #cccccc; -fx-border-width: 1px; -fx-border-radius: 5px;");
 
         Button addButton = new Button("Add Department");
         addButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8px 16px; -fx-background-radius: 5px;");
@@ -176,24 +176,30 @@ public class NetworkForm {
 
         TableColumn<NetworkConfig, Integer> hostCountColumn = new TableColumn<>("Host Count");
         hostCountColumn.setCellValueFactory(new PropertyValueFactory<>("hostCount"));
+        hostCountColumn.setPrefWidth(100);
 
         TableColumn<NetworkConfig, Integer> blockSizeColumn = new TableColumn<>("Block Size");
         blockSizeColumn.setCellValueFactory(new PropertyValueFactory<>("blockSize"));
 
         TableColumn<NetworkConfig, String> subnetMaskColumn = new TableColumn<>("Subnet Mask");
         subnetMaskColumn.setCellValueFactory(new PropertyValueFactory<>("subnetMask"));
+        subnetMaskColumn.setPrefWidth(150);
 
         TableColumn<NetworkConfig, String> networkAddressColumn = new TableColumn<>("Network Address");
         networkAddressColumn.setCellValueFactory(new PropertyValueFactory<>("networkAddress"));
+        networkAddressColumn.setPrefWidth(150);
 
         TableColumn<NetworkConfig, String> defaultGatewayColumn = new TableColumn<>("Default Gateway");
         defaultGatewayColumn.setCellValueFactory(new PropertyValueFactory<>("defaultGateway"));
+        defaultGatewayColumn.setPrefWidth(150);
 
         TableColumn<NetworkConfig, String> lastUsableIpColumn = new TableColumn<>("Last Usable IP");
         lastUsableIpColumn.setCellValueFactory(new PropertyValueFactory<>("lastUsableIp"));
+        lastUsableIpColumn.setPrefWidth(150);
 
         TableColumn<NetworkConfig, String> broadcastAddressColumn = new TableColumn<>("Broadcast Address");
         broadcastAddressColumn.setCellValueFactory(new PropertyValueFactory<>("broadcastAddress"));
+        broadcastAddressColumn.setPrefWidth(150);
 
         table.getColumns().addAll(branchColumn, departmentColumn, hostCountColumn, blockSizeColumn,
                 subnetMaskColumn, networkAddressColumn, defaultGatewayColumn, lastUsableIpColumn, broadcastAddressColumn);
